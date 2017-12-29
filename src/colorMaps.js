@@ -19,7 +19,7 @@ export function colorMap3(screen, x, y, v) {
   const g = 255 * (.5 + .5 * Math.sin(Math.PI * v + 2 * Math.PI / 3));
   const b = 255 * (.5 + .5 * Math.sin(Math.PI * v + 4 * Math.PI / 3));
   const a = 255;
-  screen.putPixel(x, y, r, g, b, a);
+  screen.putDoubledPixel(x, y, r, g, b, a);
 }
 
 export function colorMap4(screen, x, y, v) {

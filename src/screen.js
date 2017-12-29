@@ -21,24 +21,29 @@ export class Screen {
   }
 
   putDoubledPixel(x, y, r, g, b, a) {
-    this.pixels[0] = r;
-    this.pixels[1] = g;
-    this.pixels[2] = b;
-    this.pixels[3] = a;
+    if (x % 2 || y % 2) {
+      return;
+    }
+    const firstOffset = (x + this.w * y) * 4;
+    this.pixels[firstOffset] = r;
+    this.pixels[firstOffset + 1] = g;
+    this.pixels[firstOffset + 2] = b;
+    this.pixels[firstOffset + 3] = a;
 
-    this.pixels[4] = r;
-    this.pixels[4 + 1] = g;
-    this.pixels[4 + 2] = b;
-    this.pixels[4 + 3] = a;
+    this.pixels[firstOffset + 4] = r;
+    this.pixels[firstOffset + 5] = g;
+    this.pixels[firstOffset + 6] = b;
+    this.pixels[firstOffset + 7] = a;
 
-    this.pixels[2 * 4] = r;
-    this.pixels[2 * 4 + 1] = g;
-    this.pixels[2 * 4 + 2] = b;
-    this.pixels[2 * 4 + 3] = a;
+    const secondOffset = firstOffset + this.w * 4;
+    this.pixels[secondOffset] = r;
+    this.pixels[secondOffset + 1] = g;
+    this.pixels[secondOffset + 2] = b;
+    this.pixels[secondOffset + 3] = a;
 
-    this.pixels[3 * 4] = r;
-    this.pixels[3 * 4 + 1] = g;
-    this.pixels[3 * 4 + 2] = b;
-    this.pixels[3 * 4 + 3] = a;
+    this.pixels[secondOffset + 4] = r;
+    this.pixels[secondOffset + 5] = g;
+    this.pixels[secondOffset + 6] = b;
+    this.pixels[secondOffset + 7] = a;
   }
 }
