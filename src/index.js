@@ -18,8 +18,8 @@ function drawFrame(context, plasmaMap, colorMap) {
 
   const w = context.canvas.width;
   const h = context.canvas.height;
-  context.imageSmoothingEnabled = false;
-  context.mozImageSmoothingEnabled = false;
+//  context.imageSmoothingEnabled = false;
+//  context.mozImageSmoothingEnabled = false;
   const imageData = context.getImageData(0, 0, w, h);
   const screen = new Screen(w, h, imageData.data);
 
@@ -29,7 +29,8 @@ function drawFrame(context, plasmaMap, colorMap) {
     for (let x = 0; x < w; x++) {
       const xx = kx * x / w - kx / 2;
       const v = plasmaMap(xx, yy, time);
-      colorMap(screen, x, y, v);
+      const pixel = colorMap(v);
+      screen.putDoubledPixel(x, y, pixel[0], pixel[1], pixel[2], pixel[3]);
     }
   }
   context.putImageData(imageData, 0, 0);

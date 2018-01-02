@@ -25,6 +25,7 @@ export class Screen {
       return;
     }
     const firstOffset = (x + this.w * y) * 4;
+
     this.pixels[firstOffset] = r;
     this.pixels[firstOffset + 1] = g;
     this.pixels[firstOffset + 2] = b;
@@ -36,6 +37,7 @@ export class Screen {
     this.pixels[firstOffset + 7] = a;
 
     const secondOffset = firstOffset + this.w * 4;
+
     this.pixels[secondOffset] = r;
     this.pixels[secondOffset + 1] = g;
     this.pixels[secondOffset + 2] = b;
