@@ -75,5 +75,17 @@ describe('Screen', () => {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
       ]);
     });
+
+    test('draw a doubled pixel at (1, 1) in a 4x4 screen', () => {
+      const screen = new Screen(4, 4);
+      screen.putDoubledPixel(1, 1, 1, 2, 3, 4);
+
+      expect(screen.pixels).toEqual([
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4,
+        0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4
+      ]);
+    });
   });
 });

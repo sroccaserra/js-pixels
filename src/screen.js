@@ -8,8 +8,15 @@ export class Screen {
     }
 
     this.pixels = [];
-    for (let i = 0; i < w * h * 4; ++i) {
+    this.clear();
+  }
+
+  clear() {
+    for (let i = 0; i < this.w * this.h * 4; i+=4) {
       this.pixels[i] = 0;
+      this.pixels[i + 1] = 0;
+      this.pixels[i + 2] = 0;
+      this.pixels[i + 3] = 255;
     }
   }
 
@@ -22,10 +29,7 @@ export class Screen {
   }
 
   putDoubledPixel(x, y, r, g, b, a) {
-    if (x % 2 || y % 2) {
-      return;
-    }
-    const firstOffset = (x + this.w * y) * 4;
+    const firstOffset = (x + this.w * y) * 8;
 
     this.pixels[firstOffset] = r;
     this.pixels[firstOffset + 1] = g;

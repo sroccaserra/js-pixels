@@ -1,6 +1,6 @@
-import { colorMap3, plasmaFinal, Plasma } from './plasma'
 import { Screen } from './screen'
 import { requestAnimFrame } from "./animation";
+import { SceneWithSprites } from "./scene";
 
 function drawFrame(context, scene) {
   const w = context.canvas.width;
@@ -17,10 +17,11 @@ function startAnimation(canvasId) {
   const canvas = document.getElementById(canvasId);
   const context = canvas.getContext('2d');
 
-  const plasma = new Plasma(plasmaFinal, colorMap3);
+  // const plasma = new Plasma(plasmaFinal, colorMap3);
+  const scene = new SceneWithSprites();
 
   function animate() {
-    drawFrame(context, plasma);
+    drawFrame(context, scene);
     requestAnimFrame(animate);
   }
 
