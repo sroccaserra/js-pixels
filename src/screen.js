@@ -1,6 +1,7 @@
 export class Screen {
   constructor(w, h, data) {
     this.w = w;
+    this.h = h;
     if (data) {
       this.pixels = data;
       return;
