@@ -19,7 +19,7 @@ export class Plasma extends Scene {
         const v = this.plasmaFunction(xx, yy, time);
         const pixel = this.colorMap(v);
 
-        screen.putDoubledPixel(x, y, pixel[0], pixel[1], pixel[2], pixel[3]);
+        screen.putDoubledPixel(x, y, pixel[0], pixel[1], pixel[2]);
       }
     }
   }
@@ -41,8 +41,7 @@ export function colorMap1(v) {
   return [
     255 * (.5 + .5 * Math.sin(Math.PI * v)),
     255 * (.5 + .5 * Math.cos(Math.PI * v)),
-    0,
-    255
+    0
   ];
 }
 
@@ -50,8 +49,7 @@ export function colorMap2(v) {
   return [
     255,
     255 * (.5 + .5 * Math.cos(Math.PI * v)),
-    255 * (.5 + .5 * Math.sin(Math.PI * v)),
-    255
+    255 * (.5 + .5 * Math.sin(Math.PI * v))
   ];
 }
 
@@ -59,8 +57,7 @@ export function colorMap3(v) {
   return [
     255 * (.5 + .5 * Math.sin(Math.PI * v)),
     255 * (.5 + .5 * Math.sin(Math.PI * v + 2 * Math.PI / 3)),
-    255 * (.5 + .5 * Math.sin(Math.PI * v + 4 * Math.PI / 3)),
-    255
+    255 * (.5 + .5 * Math.sin(Math.PI * v + 4 * Math.PI / 3))
   ];
 }
 
@@ -69,7 +66,6 @@ export function colorMap4(v) {
   return [
     255 * c,
     255 * c,
-    255 * c,
-    255
+    255 * c
   ];
 }
