@@ -20,5 +20,8 @@
     "regenerator-runtime": "^0.11.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {
+    "mainloop.js": "^1.0.4"
   }
 }

@@ -1,6 +1,7 @@
 import { Screen } from './screen'
-import { requestAnimFrame } from "./animation";
 import { SceneWithSprites } from "./scene";
+import MainLoop from 'mainloop.js';
+
 
 function drawFrame(context, scene) {
   const w = context.canvas.width;
@@ -20,12 +21,8 @@ function startAnimation(canvasId) {
   // const plasma = new Plasma(plasmaFinal, colorMap3);
   const scene = new SceneWithSprites();
 
-  function animate() {
-    drawFrame(context, scene);
-    requestAnimFrame(animate);
-  }
-
-  requestAnimFrame(animate);
+  MainLoop.setDraw(() => drawFrame(context, scene));
+  MainLoop.start();
 }
 
 startAnimation("screen");

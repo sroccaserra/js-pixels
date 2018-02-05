@@ -1,5 +1,6 @@
 import { Screen } from '../src/screen'
 
+
 describe('Screen', () => {
   test('an empty screen', () => {
     const screen = new Screen(1, 1);
