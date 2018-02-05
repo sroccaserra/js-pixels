@@ -14,15 +14,14 @@ function drawFrame(context, scene) {
   context.putImageData(imageData, 0, 0);
 }
 
-function startAnimation(canvasId) {
-  const canvas = document.getElementById(canvasId);
+function startAnimation() {
+  const canvas = document.getElementById("screen");
   const context = canvas.getContext('2d');
 
-  // const plasma = new Plasma(plasmaFinal, colorMap3);
   const scene = new SceneWithSprites();
 
   MainLoop.setDraw(() => drawFrame(context, scene));
   MainLoop.start();
 }
 
-startAnimation("screen");
+startAnimation();
