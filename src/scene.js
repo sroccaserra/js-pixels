@@ -1,19 +1,17 @@
-import { Mushroom, MUSHROOM_DATA, MUSHROOM_PALETTE } from "./mushroom";
+import Mushroom, { MUSHROOM_DATA, MUSHROOM_PALETTE } from "./mushroom";
 import { DoubledSprite } from "./sprite";
 
-export class Scene {
-  draw(screen) {
-  }
-}
-
-export class SceneWithSprites extends Scene {
+export default class Scene {
   constructor() {
-    super();
     this.sprites = [
       new Mushroom(0, 0),
       new Mushroom(16, 16),
       new DoubledSprite(MUSHROOM_DATA, MUSHROOM_PALETTE, 32, 32)
     ]
+  }
+
+  add(sprite) {
+    this.sprites.push(sprite);
   }
 
   draw(screen) {
@@ -22,5 +20,10 @@ export class SceneWithSprites extends Scene {
       sprite.draw(screen);
     })
   }
-}
 
+  update(delta) {
+    this.sprites.forEach(sprite => {
+      sprite.update(delta);
+    })
+  }
+}

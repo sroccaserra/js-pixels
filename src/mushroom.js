@@ -1,4 +1,4 @@
-import { Sprite, _ } from "./sprite";
+import Sprite, { _ } from "./sprite";
 
 export const MUSHROOM_DATA = [
   [_, _, _, _, _, 0, 0, 0, 0, 0, 0, _, _, _, _, _],
@@ -28,7 +28,7 @@ export const MUSHROOM_PALETTE = [
   [255, 191, 119]
 ];
 
-export class Mushroom extends Sprite {
+export default class Mushroom extends Sprite {
   constructor(x, y) {
     super(MUSHROOM_DATA, MUSHROOM_PALETTE, x, y);
   }

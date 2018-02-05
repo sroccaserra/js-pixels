@@ -1,4 +1,4 @@
-import { Screen } from '../src/screen'
+import Screen from '../src/screen'
 
 
 describe('Screen', () => {

@@ -1,4 +1,4 @@
-export class Screen {
+export default class Screen {
   constructor(w, h, data) {
     this.w = w;
     this.h = h;

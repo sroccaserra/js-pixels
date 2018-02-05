@@ -1,12 +1,13 @@
 const TRANSPARENT_COLOR_INDEX = -1;
 export const _ = TRANSPARENT_COLOR_INDEX;
 
-export class Sprite {
+export default class Sprite {
   constructor(data, palette, x, y) {
     this.data = data;
     this.palette = palette;
     this.x = x;
     this.y = y;
+    this.increment = Math.ceil(Math.random()*2);
   }
 
   draw(screen) {
@@ -19,6 +20,10 @@ export class Sprite {
         }
       });
     });
+  }
+
+  update(delta) {
+    this.x = this.x + this.increment;
   }
 }
 

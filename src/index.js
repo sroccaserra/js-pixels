@@ -1,5 +1,5 @@
-import { Screen } from './screen'
-import { SceneWithSprites } from "./scene";
+import Screen from './screen'
+import Scene from "./scene";
 import MainLoop from 'mainloop.js';
 
 
@@ -18,9 +18,10 @@ function startAnimation() {
   const canvas = document.getElementById("screen");
   const context = canvas.getContext('2d');
 
-  const scene = new SceneWithSprites();
+  const scene = new Scene();
 
   MainLoop.setDraw(() => drawFrame(context, scene));
+  MainLoop.setUpdate((delta) => scene.update(delta));
   MainLoop.start();
 }
 
